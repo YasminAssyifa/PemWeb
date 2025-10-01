@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Introduction!</title>
         <link rel="stylesheet" href="web_style.css">
+
     </head>
 
     <body>    
@@ -40,7 +41,7 @@
 
         <div class="about-me" id="about-me">
                 <div class="about-image">
-                    <img src="images/abtme-image.jpg" alt="photo1" width="500rem" height="500rem">
+                    <img id="clickable-image" src="images/abtme-image.jpg" alt="photo1">
                 </div>
                 <div class="about-text">
                     <h1 class="autoshow">About me!</h1>
@@ -169,6 +170,26 @@
             </div>
         </footer>
         
+        <script>
+            const image = document.getElementById('clickable-image');
+            let clickCount = 0;
+
+            image.addEventListener('click', () => {
+            clickCount++;
+
+            if (clickCount === 3) {
+                image.classList.add('spin');
+
+                // Optional: remove class after animation so it can spin again next time
+                image.addEventListener('animationend', () => {
+                image.classList.remove('spin');
+                });
+
+                clickCount = 0;
+            }
+            });
+        </script>
+
     </body>
 
 </html>
